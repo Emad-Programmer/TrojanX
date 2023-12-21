@@ -37,13 +37,13 @@ function fadeOutElement(element, duration, callback) {
 function showSidebar() {
     document.querySelector(".side-bar").classList.add("show");
     document.querySelector(".sidebar-overlay").classList.add("over");
-    document.body.classList.add("overhide");
+    document.body.style.overflow = "hidden";
 }
 
 function closeSidebar() {
     document.querySelector(".side-bar").classList.remove("show");
     document.querySelector(".sidebar-overlay").classList.remove("over");
-    document.body.classList.remove("overhide");
+    document.body.style.overflow = "auto";
 }
 
 // Mute Button
