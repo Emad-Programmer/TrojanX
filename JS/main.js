@@ -1,7 +1,7 @@
 // Welcome Screen
 window.addEventListener('load', function () {
     // Equivalent of $("body").css("overflow", "auto");
-    document.body.style.overflow = "auto";
+    document.body.classList.add("onload");
 
     // Equivalent of $(".welcome-screen").fadeOut(2000, function() {...});
     let welcomeScreen = document.querySelector(".welcome-screen");
@@ -37,12 +37,14 @@ function fadeOutElement(element, duration, callback) {
 function showSidebar() {
     document.querySelector(".side-bar").classList.add("show");
     document.querySelector(".sidebar-overlay").classList.add("over");
+    document.body.classList.remove("onload");
     document.body.classList.add("overhide");
 }
 
 function closeSidebar() {
     document.querySelector(".side-bar").classList.remove("show");
     document.querySelector(".sidebar-overlay").classList.remove("over");
+    document.body.classList.add("onload");
     document.body.classList.remove("overhide");
 }
 
