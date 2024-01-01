@@ -2,14 +2,10 @@
 
 .terms .terms-img {
     position: var(--relativePosition);
-    background-image: url(../Media/Terms.png);
-    background-size: cover;
-    background-position: center;
-    height: 500px;
 }
 
-.terms .terms-container {
-    padding: var(--sectionPadding) 0;
+.terms .terms-img img {
+    width: 100%;
 }
 
 .terms .terms-container .term-content {

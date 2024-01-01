@@ -15,6 +15,7 @@
 
 .about-us .about-content {
     padding-top: var(--sectionPadding);
+    padding-bottom: 20px;
 }
 
 .about-us .about-content h2 {
@@ -58,13 +59,12 @@
 .team .team-container {
     display: var(--flexDisplay);
     justify-content: space-between;
-    margin: 40px auto;
 }
 
 .team .team-container .team-card {
     background-color: #000;
     border-radius: 20px;
-    margin: 0 20px;
+    margin: 30px 20px;
     padding: 20px 0;
     text-align: center;
     width: calc(100% / 5 - 20px);

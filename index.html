@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Trojan X | World News</title>
     <link rel="icon" href="Media/Logo.png">
+    <link rel="stylesheet" href="CSS/all.min.css">
     <link rel="stylesheet" href="CSS/main.css">
 </head>
 <body>
@@ -12,17 +13,34 @@
     <!-- Welcome Screen -->
     <div class="welcome-screen">
         <div class="screen-content">
-            <img src="Media/Logo.png" alt="">
+            <img id="christmas-logo" src="Media/Christmas Hat.png" alt="">
+            <img id="logo" src="Media/Logo.png" alt="">
             <h2>Trojan <span>X</span></h2>
+            <h3>Happy New Year</h3>
         </div>
     </div>
     <!-- Welcome Screen -->
 
+    <!-- Mode Settings -->
+    
+    <div class="mode-option">
+        <i title="Night Mode" class="fas fa-moon fa-2x themeChangerNight" onclick="dark()"></i>
+        <i title="Light Mode" class="fas fa-circle fa-2x themeChangerLight" onclick="light()"></i>
+    </div>
+
+    <!-- Mode Settings -->
+
     <!-- Start Main Navbar -->
     
     <header>
+        <div class="christmas-container">
+            <img class="christmas-image" src="Media/Christmas_2.png" alt="">
+            <img class="christmas-image" src="Media/Christmas_0.png" alt="">
+            <img class="christmas-image" src="Media/Christmas_2.png" alt="">
+            <img class="christmas-image" src="Media/Christmas_4.png" alt="">
+        </div>
         <nav>
-            <h2><a href="index.html"><img src="Media/Logo.png">Trojan X</a></h2>
+            <h2><img id="christmas-logo" src="Media/Christmas Hat.png" alt=""><a href="index.html"><img id="logo" src="Media/Logo.png">Trojan X</a></h2>
             <li><a class="onpage" href="index.html">Home</a></li>
             <li><a href="Pages/about-us.html">About Us</a></li>
             <li><a href="Pages/terms.html">Terms</a></li>
@@ -54,7 +72,14 @@
     <nav class="side-nav">
         <div class="sidebar-overlay" onclick="closeSidebar()"></div>
         <div class="side-bar">
+            <div class="christmas-container">
+                <img class="christmas-image" src="Media/Christmas_2.png" alt="">
+                <img class="christmas-image" src="Media/Christmas_0.png" alt="">
+                <img class="christmas-image" src="Media/Christmas_2.png" alt="">
+                <img class="christmas-image" src="Media/Christmas_4.png" alt="">
+            </div>
             <span class="sidebar-close" onclick="closeSidebar()">X</span>
+            <img id="christmas-logo" src="Media/Christmas Hat.png" alt="">
             <img id="Body-Logo" src="Media/Logo.png" alt="Trojan X">
             <h3>Trojan <span>X</span></h3>
             <ul>
@@ -63,6 +88,7 @@
                 <li onclick="closeSidebar()"><a href="Pages/terms.html">Terms</a></li>
                 <li onclick="closeSidebar()"><a href="Pages/contact-us.html">Contact Us</a></li>
             </ul>
+            <img id="sidebar-christmas" src="Media/Christmas Bottom.png" alt="">
         </div>
     </nav>
 
@@ -324,6 +350,11 @@
     <!-- Start Footer -->
 
     <footer>
+        <img class="footer-christmas" src="Media/Christmas Footer Left.png">
+        <img class="footer-christmas" src="Media/Christmas Footer Center.png">
+        <div class="christmas-respo">
+            <img class="footer-christmas-res" src="Media/Christmas Circle.png">
+        </div>
         <div class="container">
             <div class="links">
                 <ul>
@@ -352,6 +383,7 @@
             </div>
             <p>All Rights Reserved &copy; 2023 <span><a href="index.html">Trojan X | News</a></span></p>
         </div>
+        <img class="footer-christmas" src="Media/Christmas Footer Right.png">
     </footer>
 
     <!-- End Footer -->
@@ -361,6 +393,40 @@
         window.onscroll = function() {
             this.scrollY >= 850 ? scrollBtn.classList.add("reveal") : scrollBtn.classList.remove("reveal");
         }
+
+        // Dark Mode Codes
+
+        let darkMode = localStorage.getItem('darkMode');
+
+        function dark() {
+            let head = document.getElementsByTagName('HEAD')[0]; 
+            let link = document.createElement('link'), link_pages = document.createElement('link');
+            link.rel = link_pages.rel = 'stylesheet';
+            link.type = link_pages.type = 'text/css';
+            link.href = 'CSS/dark-mode.css';
+            link_pages.href = 'CSS/pages-dark-mode.css';
+            link.setAttribute("id", "night");
+            link_pages.setAttribute("id", "night-pages");
+            head.appendChild(link);
+            head.appendChild(link_pages);
+            document.querySelector(".themeChangerNight").style.display = "none";
+            document.querySelector(".themeChangerLight").style.display = "initial";
+            localStorage.setItem('darkMode', 'enabled');
+        }
+
+        function light() {
+            document.querySelector("#night").remove();
+            document.querySelector("#night-pages").remove();
+            document.querySelector(".themeChangerNight").style.display = "initial";
+            document.querySelector(".themeChangerLight").style.display = "none";
+            localStorage.setItem('darkMode', null);
+        }
+
+        if (darkMode === 'enabled') {
+            dark();
+        }
+
+        // Dark Mode Codes
     </script>
     <script src="jquery-3.7.1.min.js"></script>
     <script src="JS/main.js"></script>
